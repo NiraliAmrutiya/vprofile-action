@@ -10,12 +10,12 @@ env:
   EKS_CLUSTER: vprofileapp-eks
 
 jobs:
-  
-
-  Publish_Artifact:
-    
-    name: Publish Artifact
+  Build_Package:
+    name: Package application
     runs-on: ubuntu-latest
     steps:   
       - name: Code checkout
-        uses: actions/checkout@v4     
+        uses: actions/checkout@v4 
+   
+      - name: Package application
+        uses: mvn package    
