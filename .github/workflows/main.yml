@@ -82,8 +82,8 @@ jobs:
       #     SONAR_HOST_URL: ${{ secrets.SONAR_URL }} #OPTIONAL
 
   Publish_Artifact:
-    if: github.repository == 'main'
-    # if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    # if: github.repository == 'main'
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     name: Publish Artifact
     runs-on: ubuntu-latest
     steps:   
