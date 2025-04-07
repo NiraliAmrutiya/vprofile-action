@@ -7,6 +7,7 @@ env:
 
 jobs:
   Build:
+    name: Build 
     runs-on: ubuntu-latest
     steps:
       - name: Code checkout
@@ -16,6 +17,7 @@ jobs:
         run: mvn compile
 
   Testing:
+    name: Test
     runs-on: ubuntu-latest
     steps:
       # - name: Code checkout
@@ -27,7 +29,8 @@ jobs:
       - name: Checkstyle
         run: mvn checkstyle:checkstyle
 
-  Quality Gate:
+  Quality_Gate:
+    name: Quality Gate
     runs-on: ubuntu-latest
     steps:
       - name: Code checkout
