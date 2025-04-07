@@ -6,17 +6,32 @@ env:
   EKS_CLUSTER: vprofileapp-eks
 
 jobs:
-  Testing:
+  Build:
     runs-on: ubuntu-latest
     steps:
       - name: Code checkout
         uses: actions/checkout@v4
 
       - name: Maven test
+        run: mvn compile
+
+  Testing:
+    runs-on: ubuntu-latest
+    steps:
+      # - name: Code checkout
+      #   uses: actions/checkout@v4
+
+      - name: Maven test
         run: mvn test
 
       - name: Checkstyle
         run: mvn checkstyle:checkstyle
+
+  Quality Gate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Code checkout
+        uses: actions/checkout@v4
 
       # Setup java 11 to be default (sonar-scanner requirement as of 5.x)
       - name: Set Java 11
