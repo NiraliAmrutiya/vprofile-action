@@ -13,15 +13,15 @@ jobs:
       - name: Code checkout
         uses: actions/checkout@v4
 
-      - name: Maven test
+      - name: Maven build
         run: mvn compile
 
   Testing:
     name: Test
     runs-on: ubuntu-latest
     steps:
-      # - name: Code checkout
-      #   uses: actions/checkout@v4
+      - name: Code checkout
+        uses: actions/checkout@v4
 
       - name: Maven test
         run: mvn test
@@ -43,10 +43,12 @@ jobs:
          distribution: 'temurin' # See 'Supported distributions' for available options
          java-version: '11'
 
+      - name: Maven build
+        run: mvn compile
+
       # Setup sonar-scanner
       - name: Setup SonarQube
         uses: warchant/setup-sonar-scanner@v7
-
 
       # Run sonar-scanner
       - name: SonarQube Scan
