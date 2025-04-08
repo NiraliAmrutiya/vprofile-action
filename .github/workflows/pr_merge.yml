@@ -1,19 +1,16 @@
 name: PR Merge
 ## on: workflow_dispatch
 on:
-  workflow_run:
-    workflows: ["PR Validation Check"]
-    types:
-      - completed
+  push:
+    branches:
+      - main
 env:
   AWS_REGION: us-east-1
   ECR_REPOSITORY: vprofileapp
   EKS_CLUSTER: vprofileapp-eks
 
 jobs:
-  Build_Package:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
-
+  Build_Docker_Image:
     name: Build docker image 
     runs-on: ubuntu-latest
     
@@ -21,7 +18,7 @@ jobs:
       - name: Code checkout
         uses: actions/checkout@v4 
    
-      - name: Build docker image upload to ECR
+      - name: Build docker image & upload to ECR
         uses: appleboy/docker-ecr-action@master
         with: 
           access_key: ${{ secrets.AWS_ACCESS_KEY }}
