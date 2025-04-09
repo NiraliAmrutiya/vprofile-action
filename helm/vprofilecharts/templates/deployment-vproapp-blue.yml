@@ -15,6 +15,7 @@ spec:
     metadata:
       labels:
         app: vproapp-blue
+        version: blue
     spec:
       containers:
       - name: vproapp-blue
