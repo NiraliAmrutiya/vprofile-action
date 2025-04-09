@@ -80,5 +80,5 @@ jobs:
           #config-files: .github/values/dev.yaml
           chart-path: helm/vprofilecharts
           namespace: default
-          values: appimage=${{ env.ECR_REPOSITORY }}/${{ env.activeService }},apptag=${{ github.run_number }},elbHost=${{ secrets.ELB_HOST }},activeService=${{ env.ACTIVE_SERVICE }}
+          values: appimage=${{ secrets.DOCKER_USERNAME }}/${{ env.DOCKER_REPOSITORY }},apptag=${{ github.run_number }},elbHost=${{ secrets.ELB_HOST }},activeService=${{ env.ACTIVE_SERVICE }}
           name: vprofile-stack    
