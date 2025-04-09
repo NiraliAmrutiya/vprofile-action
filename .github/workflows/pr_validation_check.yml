@@ -1,9 +1,9 @@
 name: PR Validation Check
-# on: workflow_dispatch
-on:
-  push:
-    branches:
-      - feature
+on: workflow_dispatch
+# on:
+#   push:
+#     branches:
+#       - stage
 env:
   AWS_REGION: us-east-1
   ECR_REPOSITORY: vprofileapp
