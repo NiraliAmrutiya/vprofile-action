@@ -3,7 +3,7 @@ name: PR Validation Check
 on:
   push:
     branches:
-      - feature
+      - stage
 env:
   AWS_REGION: us-east-1
   ECR_REPOSITORY: vprofileapp
