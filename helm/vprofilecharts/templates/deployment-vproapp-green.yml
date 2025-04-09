@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: vproapp
+  name: vproapp-green
   labels: 
-    app: vproapp
+    app: vproapp-green
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: vproapp
+      app: vproapp-green
   template:
     metadata:
       labels:
-        app: vproapp
+        app: vproapp-green
     spec:
       containers:
-      - name: vproapp
+      - name: vproapp-green
         image: {{ .Values.appimage}}:{{ .Values.apptag}}
         ports:
         - name: vproapp-port

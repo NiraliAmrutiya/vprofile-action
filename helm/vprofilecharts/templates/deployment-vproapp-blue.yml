@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: vproapp
+  name: vproapp-blue
   labels: 
-    app: vproapp
+    app: vproapp-blue
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: vproapp
+      app: vproapp-blue
   template:
     metadata:
       labels:
-        app: vproapp
+        app: vproapp-blue
     spec:
       containers:
-      - name: vproapp
-        image: {{ .Values.appimage}}:{{ .Values.apptag}}        
+      - name: vproapp-blue
+        image: {{ .Values.appimage}}:{{ .Values.apptag}}
         ports:
         - name: vproapp-port
           containerPort: 8080
