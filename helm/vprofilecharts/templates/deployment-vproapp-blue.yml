@@ -4,11 +4,13 @@ metadata:
   name: vproapp-blue
   labels: 
     app: vproapp-blue
+    version: blue
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: vproapp-blue
+      version: blue
   template:
     metadata:
       labels:
