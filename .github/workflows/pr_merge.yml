@@ -8,7 +8,7 @@ env:
   AWS_REGION: us-east-1
   ECR_REPOSITORY: vprofileapp
   EKS_CLUSTER: vprofileapp-eks
-  ACTIVE_SERVICE: my-app-blue
+  ACTIVE_SERVICE: blue
   DOCKER_REPOSITORY: vprofile-docker-repo
   
 

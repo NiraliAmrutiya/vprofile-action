@@ -1,14 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: vproapp-green
+  name: vproapp-service
   labels:
-    app: vproapp-green
+    app: vproapp-service
 spec:
   ports:
   - port: 8080
     protocol: TCP
     targetPort: 8080
   selector:
-    app: vproapp-green
+    app: vproapp
+    version: {{ .Values.activeService}}
   type: ClusterIP
