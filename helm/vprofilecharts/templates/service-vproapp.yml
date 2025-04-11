@@ -10,6 +10,6 @@ spec:
     protocol: TCP
     targetPort: 8080
   selector:
-    app: vproapp
+    app: "vproapp-{{ .Values.activeService}}"
     version: {{ .Values.activeService}}
   type: ClusterIP
