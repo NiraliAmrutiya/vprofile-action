@@ -1,28 +1,28 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: vproapp-green
+  name: vproapp-{{ .Values.activeService}}-deployment
   labels: 
-    app: vproapp-green
-    version: green
+    app: vproapp-{{ .Values.activeService}}
+    version: {{ .Values.activeService}}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: vproapp-green
-      version: green
+      app: vproapp-{{ .Values.activeService}}
+      version: {{ .Values.activeService}}
   template:
     metadata:
       labels:
-        app: vproapp-green
-        version: green
+        app: vproapp-{{ .Values.activeService}}
+        version: {{ .Values.activeService}}
     spec:
       containers:
-      - name: vproapp-green
+      - name: deploy-vproapp-{{ .Values.activeService}}
         image: {{ .Values.appimage}}:{{ .Values.apptag}}
         ports:
         - name: vproapp-port
-          containerPort: 8080
+          containerPort: 80
       initContainers:
       - name: init-mydb
         image: busybox
