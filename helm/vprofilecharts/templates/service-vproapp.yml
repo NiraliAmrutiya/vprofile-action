@@ -5,11 +5,12 @@ metadata:
   labels:
     app: vproapp-service
 spec:
+  type: ClusterIP
   ports:
   - port: 8080
     protocol: TCP
     targetPort: 8080
   selector:
-    app: "vproapp-{{ .Values.activeService}}"
+    app: vproapp-{{ .Values.activeService}}
     version: {{ .Values.activeService}}
-  type: ClusterIP
+  
